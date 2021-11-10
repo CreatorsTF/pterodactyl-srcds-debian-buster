@@ -35,13 +35,10 @@ RUN         tput setaf 2; echo "Installing dependencies..."; tput sgr0;     \
             # needed for some sourcemod extensions
             curl libcurl4:i386                                              \
             # needed for steamcmd
-            ca-certificates                                                 \
-            # python for startup scripts
-            python3-minimal                                                 \
-            # python for startup scripts
-            git-lfs                                                         \
+            ca-certificates;							\
 # clean our package cache to keep img size down
-            && apt-get clean                                                \
+            apt-get clean							\
+            && apt-get autoremove                                          \
             && rm -rf /var/lib/apt/lists/*;                                 \
 # create our container user
             tput setaf 2; echo "Creating container user..."; tput sgr0;     \
