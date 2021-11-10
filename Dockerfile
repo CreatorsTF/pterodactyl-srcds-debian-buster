@@ -35,10 +35,11 @@ RUN         tput setaf 2; echo "Installing dependencies..."; tput sgr0;     \
             # needed for some sourcemod extensions
             curl libcurl4:i386                                              \
             # needed for steamcmd
-            ca-certificates;							\
+            ca-certificates;                                                \
 # clean our package cache to keep img size down
-            apt-get clean							\
-            && apt-get autoremove                                          \
+            tput setaf 2; echo "Cleaning packages..."; tput sgr0;           \
+            apt-get autoremove -y                                           \
+            && apt-get clean                                                \
             && rm -rf /var/lib/apt/lists/*;                                 \
 # create our container user
             tput setaf 2; echo "Creating container user..."; tput sgr0;     \
